@@ -1,30 +1,25 @@
-import useSpaceShipsSearch from './lib/hooks/useSpaceShipsSearch';
+import { useState } from 'react';
+import ListShips from './components/ListShips';
+import Ship from './components/Ship';
 
 function App() {
-  const { state, loading } = useSpaceShipsSearch();
+  const [selectedShip, setSelectedShip] = useState({
+    data: undefined,
+    image: undefined,
+  });
 
-  let listShips;
-
-  if (state.spaceShips) {
-    listShips = state.spaceShips.map((el) => {
-      return (
-        <div key={el.name + Math.random()}>
-          <button>
-            <p>{el.name}</p>
-            <p>{el.model}</p>
-          </button>
-        </div>
-      );
-    });
-  }
   return (
     <div>
       <div>
         <button>HOME </button>
-        <button>STARSHIPS</button>
+        <button onClick={() => setSelectedShip({})}>STARSHIPS</button>
       </div>
-      {loading && <h1>Loading...</h1>}
-      {listShips}
+
+      {selectedShip.data ? (
+        <Ship selectedShip={selectedShip} />
+      ) : (
+        <ListShips setSelectedShip={setSelectedShip} />
+      )}
     </div>
   );
 }
