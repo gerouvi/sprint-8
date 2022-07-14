@@ -1,7 +1,9 @@
+import useObserver from '../lib/hooks/useObserver';
 import useSpaceShipsSearch from '../lib/hooks/useSpaceShipsSearch';
 
 const ListShips = ({ setSelectedShip }) => {
-  const { state, loading, error } = useSpaceShipsSearch();
+  const { state, setState, loading, error } = useSpaceShipsSearch();
+  const observerRef = useObserver(loading, state, setState);
 
   return (
     <>
@@ -20,6 +22,7 @@ const ListShips = ({ setSelectedShip }) => {
           </button>
         </div>
       ))}{' '}
+      <div style={{ height: 1 }} ref={observerRef}></div>
       {loading && <h1>Loading...</h1>}
       {error && <h1>{error.message}</h1>}
     </>

@@ -11,6 +11,7 @@ export const getSpaceShips = async (urls, signal) => {
 
     return {
       data: data.results,
+      hasMore: data.next,
     };
   } catch (err) {
     if (err.code === 20) return;
