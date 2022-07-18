@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getSpaceShips } from '../api/shipsApi';
+import useObserver from '../../lib/hooks/useObserver';
 
 const useSpaceShipsSearch = () => {
   const [state, setState] = useState({
@@ -9,6 +10,14 @@ const useSpaceShipsSearch = () => {
   });
   const [loading, setLoading] = useState();
   const [error, setError] = useState(false);
+
+  const nextPage = useCallback(() => {
+    if (loading) return;
+    if (state.hasMore) {
+      setState((prev) => ({ ...prev, page: prev.page + 1 }));
+    }
+  }, [state, loading]);
+  const observerRef = useObserver(nextPage);
 
   const urls = useMemo(() => {
     return [
@@ -45,6 +54,7 @@ const useSpaceShipsSearch = () => {
   }, [getSpace]);
 
   return {
+    ref: observerRef,
     state,
     setState,
     loading,

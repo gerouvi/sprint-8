@@ -3,7 +3,7 @@ export const getSpaceShips = async (urls, signal) => {
     let requests = urls.map((url) => fetch(url, { signal }));
     const responses = await Promise.allSettled(requests);
     let data;
-
+    
     if (responses[0].value.ok) data = await responses[0].value.json();
     else if (responses[1].value.ok) data = await responses[1].value.json();
 

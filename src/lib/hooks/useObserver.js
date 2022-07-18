@@ -1,12 +1,11 @@
 import { useEffect, useRef } from 'react';
 
-function useObserver(loading, state, setState) {
+function useObserver(callback) {
   const ref = useRef();
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      if (loading) return;
-      if (entries[0].isIntersecting && state.hasMore) {
-        setState((prev) => ({ ...prev, page: prev.page + 1 }));
+      if (entries[0].isIntersecting) {
+        callback()
       }
     });
     const copyRef = { ...ref };
@@ -14,7 +13,7 @@ function useObserver(loading, state, setState) {
     return () => {
       observer.unobserve(copyRef.current);
     };
-  }, [state, loading, setState]);
+  }, [callback]);
   return ref;
 }
 
