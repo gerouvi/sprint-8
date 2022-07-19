@@ -13,10 +13,7 @@ const StarShips = () => {
   return (
     <div>
       <Header />
-      <Navigation
-        selectedShip={selectedShip}
-        setSelectedShip={setSelectedShip}
-      />
+      <Navigation />
       {selectedShip.data ? (
         <Ship selectedShip={selectedShip} />
       ) : (

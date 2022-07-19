@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import sw from '../../assets/images/starwars.png';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -22,14 +23,16 @@ const Header = () => {
         <img src={sw} alt="star wars logo" className={styles.mainMenu__logo} />
         <ul className={styles.mainMenu__list}>
           <li className={styles.mainMenu__item}>
-            <a href="." className={styles.mainMenu__link}>
-              Sign In
-            </a>
+            <Link to={`/login`} className={styles.mainMenu__link}>
+              {' '}
+              Log in
+            </Link>
           </li>
           <li className={styles.mainMenu__item}>
-            <a href="." className={styles.mainMenu__link}>
-              Log In
-            </a>
+            <Link to={`/signin`} className={styles.mainMenu__link}>
+              {' '}
+              Sign In
+            </Link>
           </li>
         </ul>
       </div>

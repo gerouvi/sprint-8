@@ -72,6 +72,7 @@
 .mainMenu__link{
     color: white;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .mainMneu__item{

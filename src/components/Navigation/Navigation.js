@@ -1,33 +1,29 @@
-import Button from '../Button/Button';
 import styles from './Navigation.module.css';
+import { NavLink } from 'react-router-dom';
 
-const Navigation = ({ selectedShip, setSelectedShip }) => {
-  const buttonSelectedShipActive = selectedShip.data ? false : true;
+const Navigation = () => (
+  <div className={styles.navigation}>
+    <NavLink
+      to="/"
+      className={({ isActive }) =>
+        isActive
+          ? `${styles.navigation__buttonWrapper} ${styles.navigation__buttonWrapper_active}`
+          : ` ${styles.navigation__buttonWrapper}`
+      }
+    >
+      <span className={styles.navigation__button}>Home</span>
+    </NavLink>
 
-  return (
-    <div className={styles.navigation}>
-      <div className={styles.navigation__button}>
-        <Button>Home</Button>
-      </div>
-      <div
-        className={`${styles.navigation__button} ${
-          buttonSelectedShipActive ? styles.navigation__button_active : ''
-        }`}
-      >
-        <Button
-          active={buttonSelectedShipActive}
-          onClick={() =>
-            setSelectedShip({
-              data: undefined,
-              image: undefined,
-            })
-          }
-        >
-          StarShips
-        </Button>
-      </div>
-    </div>
-  );
-};
-
+    <NavLink
+      to="/starships"
+      className={({ isActive }) =>
+        isActive
+          ? `${styles.navigation__buttonWrapper} ${styles.navigation__buttonWrapper_active}`
+          : ` ${styles.navigation__buttonWrapper}`
+      }
+    >
+      <span className={styles.navigation__button}>StarShips</span>
+    </NavLink>
+  </div>
+);
 export default Navigation;
