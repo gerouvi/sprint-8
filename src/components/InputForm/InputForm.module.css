@@ -1,0 +1,15 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.input{
+    border: none;
+    background-color: var(--color-black);
+    border-bottom: .05rem solid var(--color-white);
+    color: white;
+    text-align: center;
+}

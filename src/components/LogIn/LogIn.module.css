@@ -1,0 +1,23 @@
+.title{
+    text-align: center;
+}
+
+.wrapperForm{
+    margin-top: 3rem;
+    width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.correct{
+    color: rgb(128, 198, 23);
+}
+
+.incorrect{
+    color: rgb(249, 75, 75);
+}

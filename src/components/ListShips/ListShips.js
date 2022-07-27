@@ -9,8 +9,12 @@ const ListShips = ({ setSelectedShip }) => {
   return (
     <div className={styles.listShips}>
       {state.spaceShips.map((el, index) => (
-        <Link to={`/starships/${index}`} state={{ data: el, image: index }}>
-          <div key={index} className={styles.listShips__row}>
+        <Link
+          to={`/starships/${index}`}
+          state={{ data: el, image: index }}
+          key={index}
+        >
+          <div className={styles.listShips__row}>
             <p className={styles.listShips__name}>{el.name}</p>
             <p className={styles.listShips__model}>{el.model}</p>
           </div>

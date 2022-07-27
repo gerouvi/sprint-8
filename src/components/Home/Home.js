@@ -1,8 +1,13 @@
+import { useContext } from 'react';
+import { UserLogged } from '../../lib/contexts/UserLogged';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import styles from './Home.module.css';
 
 const Home = () => {
+  const { userLogged, setUserLogged } = useContext(UserLogged);
+
+  // if (!userLogged) Location.push('/login');
   return (
     <>
       <Header />
