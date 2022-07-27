@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Pilot.module.css';
 
 const Pilot = ({ data }) => {
   const [pilot, setPilot] = useState(null);
 
-  fetch(data)
-    .then((res) => res.json())
-    .then((data) => {
-      setPilot(data);
-    });
+  useEffect(() => {
+    fetch(data)
+      .then((res) => res.json())
+      .then((data) => {
+        setPilot(data);
+      });
+  }, [data]);
 
   return (
     pilot && (

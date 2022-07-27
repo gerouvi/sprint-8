@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import Pilot from '../Pilot/Pilot';
 import ButtonForm from '../ButtonForm/ButtonForm';
+import Film from '../Film/Film';
 
 const Ship = () => {
   const location = useLocation();
@@ -31,6 +32,38 @@ const Ship = () => {
       setPilots((prev) => ({
         data: renderPilots,
         toggleShow: !prev.toggleShow,
+      }));
+      setFilms((prev) => ({
+        data: prev.data,
+        toggleShow: false,
+      }));
+    }
+  };
+
+  const [films, setFilms] = useState({
+    data: null,
+    toggleShow: false,
+  });
+
+  const handleFilms = (filmsArray) => {
+    if (!filmsArray.length) {
+      setFilms((prev) => ({
+        data: <span>No Films</span>,
+        toggleShow: !prev.toggleShow,
+      }));
+    } else {
+      const renderFilms = filmsArray.map((el, index) => (
+        <Film key={index} data={el} />
+      ));
+
+      setFilms((prev) => ({
+        data: renderFilms,
+        toggleShow: !prev.toggleShow,
+      }));
+
+      setPilots((prev) => ({
+        data: prev.data,
+        toggleShow: false,
       }));
     }
   };
@@ -86,9 +119,21 @@ const Ship = () => {
             <ButtonForm onClick={() => handlePilots(selectedShip.data.pilots)}>
               Show Pilots
             </ButtonForm>
+            <ButtonForm onClick={() => handleFilms(selectedShip.data.films)}>
+              Show Films
+            </ButtonForm>
           </div>
           {pilots.toggleShow && (
-            <div className={styles.ship__pilots}>{pilots.data}</div>
+            <>
+              <div className={styles.ship__cardsTitle}>Pilots: </div>
+              <div className={styles.ship__cards}>{pilots.data}</div>
+            </>
+          )}
+          {films.toggleShow && (
+            <>
+              <div className={styles.ship__cardsTitle}>Films: </div>
+              <div className={styles.ship__cards}>{films.data}</div>
+            </>
           )}
         </div>
       </div>

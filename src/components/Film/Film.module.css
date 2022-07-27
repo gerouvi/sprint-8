@@ -1,0 +1,9 @@
+.film {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 13rem;
+    padding: .3rem;
+    border: .5px solid var(--color-white);
+    border-radius: .5rem;
+}
