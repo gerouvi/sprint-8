@@ -4,8 +4,11 @@ import Header from '../Header/Header';
 import InputForm from '../InputForm/InputForm';
 import Navigation from '../Navigation/Navigation';
 import styles from './LogIn.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
+  const navigate = useNavigate();
+
   const [data, setData] = useState({
     userName: '',
     password: '',
@@ -29,6 +32,12 @@ const LogIn = () => {
       dataUser[1] === dataLocalStorage[1]
     ) {
       setCorrectCredentials(1);
+      setData({
+        userName: '',
+        password: '',
+      });
+      localStorage.setItem('userStarWarsLogged', true);
+      navigate('/');
     } else setCorrectCredentials(2);
   };
 
@@ -44,8 +53,14 @@ const LogIn = () => {
           handlerCheckCredentials();
         }}
       >
-        <InputForm label="User name" setData={setData} newKey="userName" />
         <InputForm
+          value={data.userName}
+          label="User name"
+          setData={setData}
+          newKey="userName"
+        />
+        <InputForm
+          value={data.password}
           label="Password"
           setData={setData}
           newKey="password"

@@ -32,8 +32,14 @@ const SignIn = () => {
           }
         }}
       >
-        <InputForm label="User name" setData={setData} newKey="userName" />
         <InputForm
+          value={data.userName}
+          label="User name"
+          setData={setData}
+          newKey="userName"
+        />
+        <InputForm
+          value={data.password}
           label="Password"
           setData={setData}
           newKey="password"

@@ -13,7 +13,7 @@ const Ship = () => {
   return (
     <>
       <Header />
-      <Navigation />
+      <Navigation selected />
       <div className={styles.ship}>
         <div className={styles.ship__img}>
           <img

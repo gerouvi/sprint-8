@@ -2,9 +2,17 @@ import useSpaceShipsSearch from '../../lib/hooks/useSpaceShipsSearch';
 import styles from './ListShips.module.css';
 import Spinner from '../Spinner/Spinner';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const ListShips = ({ setSelectedShip }) => {
+const ListShips = () => {
   const { ref, state, loading, error } = useSpaceShipsSearch();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem('userStarWarsLogged')) navigate('/login');
+  }, [navigate]);
 
   return (
     <div className={styles.listShips}>

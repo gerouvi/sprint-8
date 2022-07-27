@@ -1,7 +1,7 @@
 import styles from './Navigation.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Navigation = () => (
+const Navigation = ({ selected }) => (
   <div className={styles.navigation}>
     <NavLink
       to="/"
@@ -17,7 +17,7 @@ const Navigation = () => (
     <NavLink
       to="/starships"
       className={({ isActive }) =>
-        isActive
+        isActive && !selected
           ? `${styles.navigation__buttonWrapper} ${styles.navigation__buttonWrapper_active}`
           : ` ${styles.navigation__buttonWrapper}`
       }

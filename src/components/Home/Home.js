@@ -1,13 +1,20 @@
-import { useContext } from 'react';
-import { UserLogged } from '../../lib/contexts/UserLogged';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import styles from './Home.module.css';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
-  const { userLogged, setUserLogged } = useContext(UserLogged);
+  const [showHome, setShowHome] = useState(false);
+  const navigate = useNavigate();
 
-  // if (!userLogged) Location.push('/login');
+  useEffect(() => {
+    if (!localStorage.getItem('userStarWarsLogged')) navigate('/login');
+    else setShowHome(true);
+  }, [navigate]);
+
+  if (!showHome) return;
+
   return (
     <>
       <Header />
