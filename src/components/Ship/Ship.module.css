@@ -14,6 +14,10 @@
     }
 }
 
+.ship__data{
+    padding-bottom: 5rem;
+}
+
 .ship__img{
     width: 100%;
     display: flex;
@@ -39,14 +43,14 @@
 }
 
 
-.ship__bottom{
+.ship__details{
     display: flex;
     flex-direction: column;
-    
+    margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 500px){
-    .ship__bottom{
+    .ship__details{
         flex-direction: row;
     }
 }
@@ -64,5 +68,31 @@
 .ship__element{
     text-decoration: none;
     list-style: none;
+}
+
+.ship__buttons{
+    display: flex;
+    justify-content: flex-start;
+}
+
+@media screen and (min-width: 500px) {
+    .ship__buttons {
+       
+        justify-content: center;
+    }
+}
+
+.ship__pilots{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+@media screen and (min-width: 500px) {
+    .ship__pilots {
+        justify-content: center;
+    }
 }
 

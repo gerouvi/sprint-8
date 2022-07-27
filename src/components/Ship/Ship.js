@@ -3,6 +3,8 @@ import styles from './Ship.module.css';
 import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
+import Pilot from '../Pilot/Pilot';
+import ButtonForm from '../ButtonForm/ButtonForm';
 
 const Ship = () => {
   const location = useLocation();
@@ -10,6 +12,28 @@ const Ship = () => {
   const selectedShip = location.state;
 
   const [widthPicture, setWidthPicture] = useState(styles.img__default);
+
+  const [pilots, setPilots] = useState({
+    data: null,
+    toggleShow: false,
+  });
+
+  const handlePilots = (pilotsArray) => {
+    if (!pilotsArray.length) {
+      setPilots((prev) => ({
+        data: <span>No Pilots</span>,
+        toggleShow: !prev.toggleShow,
+      }));
+    } else {
+      const renderPilots = pilotsArray.map((el, index) => (
+        <Pilot key={index} data={el} />
+      ));
+      setPilots((prev) => ({
+        data: renderPilots,
+        toggleShow: !prev.toggleShow,
+      }));
+    }
+  };
   return (
     <>
       <Header />
@@ -33,7 +57,7 @@ const Ship = () => {
           <p className={styles.ship__description}>
             {selectedShip.data.starship_class}
           </p>
-          <div className={styles.ship__bottom}>
+          <div className={styles.ship__details}>
             <ul className={styles.ship__dataColumn}>
               <li className={styles.ship__element}>
                 {' '}
@@ -58,6 +82,14 @@ const Ship = () => {
               </li>
             </ul>
           </div>
+          <div className={styles.ship__buttons}>
+            <ButtonForm onClick={() => handlePilots(selectedShip.data.pilots)}>
+              Show Pilots
+            </ButtonForm>
+          </div>
+          {pilots.toggleShow && (
+            <div className={styles.ship__pilots}>{pilots.data}</div>
+          )}
         </div>
       </div>
     </>
