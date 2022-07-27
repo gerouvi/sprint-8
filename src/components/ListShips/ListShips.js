@@ -13,6 +13,7 @@ const ListShips = ({ setSelectedShip }) => {
           to={`/starships/${index}`}
           state={{ data: el, image: index }}
           key={index}
+          className={styles.listShips__link}
         >
           <div className={styles.listShips__row}>
             <p className={styles.listShips__name}>{el.name}</p>

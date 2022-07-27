@@ -9,7 +9,10 @@
         margin-right: auto;
     }
 }
-
+.listShips__link{
+    color: var(--color-white);
+    text-decoration: none;
+}
 .listShips__row{
     padding: 1rem 1.2rem;
     cursor: pointer;
