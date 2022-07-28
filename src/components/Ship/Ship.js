@@ -14,10 +14,12 @@ const Ship = () => {
 
   const [widthPicture, setWidthPicture] = useState(styles.img__default);
 
-  const [pilots, setPilots] = useState({
+  const initialData = {
     data: null,
     toggleShow: false,
-  });
+  };
+
+  const [pilots, setPilots] = useState(initialData);
 
   const handlePilots = (pilotsArray) => {
     if (!pilotsArray.length) {
@@ -25,18 +27,19 @@ const Ship = () => {
         data: <span>No Pilots</span>,
         toggleShow: !prev.toggleShow,
       }));
+
+      setFilms(initialData);
     } else {
-      const renderPilots = pilotsArray.map((el, index) => (
+      const pilotsRendereds = pilotsArray.map((el, index) => (
         <Pilot key={index} data={el} />
       ));
+
       setPilots((prev) => ({
-        data: renderPilots,
+        data: pilotsRendereds,
         toggleShow: !prev.toggleShow,
       }));
-      setFilms((prev) => ({
-        data: prev.data,
-        toggleShow: false,
-      }));
+
+      setFilms(initialData);
     }
   };
 
@@ -51,20 +54,19 @@ const Ship = () => {
         data: <span>No Films</span>,
         toggleShow: !prev.toggleShow,
       }));
+
+      setPilots(initialData);
     } else {
-      const renderFilms = filmsArray.map((el, index) => (
+      const filmsRendereds = filmsArray.map((el, index) => (
         <Film key={index} data={el} />
       ));
 
       setFilms((prev) => ({
-        data: renderFilms,
+        data: filmsRendereds,
         toggleShow: !prev.toggleShow,
       }));
 
-      setPilots((prev) => ({
-        data: prev.data,
-        toggleShow: false,
-      }));
+      setPilots(initialData);
     }
   };
   return (
