@@ -1,0 +1,9 @@
+:root{
+    --color-black: rgb(6, 6, 6);
+    --color-gray: rgb(145, 144, 144);
+    --color-white: rgb(240, 238, 239);
+    --color-blue: rgb(67, 67, 238);
+
+    --weight-light: 100;
+    --weight-bold: 600;
+}

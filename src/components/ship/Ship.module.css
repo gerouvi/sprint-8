@@ -1,0 +1,111 @@
+.ship {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 500px) {
+    .ship {
+        width: 60%;
+    }
+}
+
+.ship__data{
+    padding-bottom: 5rem;
+}
+
+.ship__img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid rgb(82, 21, 21);;
+}
+
+.img__default{
+   width: 100%;
+}
+
+.img__small{
+    width: 200px;
+}
+
+.ship__title{
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+}
+
+.ship__description{
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+
+.ship__details{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 500px){
+    .ship__details{
+        flex-direction: row;
+    }
+}
+
+.ship__dataColumn{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.ship__element{
+    text-decoration: none;
+    list-style: none;
+}
+
+.ship__buttons{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 500px) {
+    .ship__buttons {
+        justify-content: center;
+    }
+}
+
+.ship__cardsTitle{
+    text-align: start;
+}
+
+@media screen and (min-width: 500px) {
+    .ship__cardsTitle {
+        text-align: center;
+    }
+}
+
+.ship__cards{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+@media screen and (min-width: 500px) {
+    .ship__cards {
+        justify-content: center;
+    }
+}
+

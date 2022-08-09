@@ -1,0 +1,38 @@
+.navigation {
+    height: 3rem;
+    border-top: .1px solid var(--color-gray);
+    border-bottom: .1px solid var(--color-gray);
+    display: flex;
+    justify-content: center;
+   
+}
+
+.navigation__buttonWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 8rem;
+    border-right: .1px solid var(--color-gray);
+    border-left: .1px solid var(--color-gray);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+   text-decoration: none;
+
+}
+
+.navigation__buttonWrapper_active{
+    border-bottom: .2rem solid rgb(41, 41, 160);
+}
+
+.navigation__buttonWrapper_active .navigation__button{
+    font-weight: var(--weight-bold);
+}
+
+.navigation__button{
+    color: var(--color-white);
+    text-transform: uppercase;
+}
+
+
+

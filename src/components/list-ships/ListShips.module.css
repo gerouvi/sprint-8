@@ -1,0 +1,36 @@
+.listShips{
+    padding-top: 1.3rem;
+}
+
+@media screen and (min-width: 500px){
+    .listShips{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.listShips__link{
+    color: var(--color-white);
+    text-decoration: none;
+}
+.listShips__row{
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.listShips__name{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 100;
+    margin-bottom: .6rem;
+    margin-top: 0;
+}
+
+.listShips__model{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 100;
+}
+

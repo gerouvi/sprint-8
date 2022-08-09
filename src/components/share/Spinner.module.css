@@ -1,0 +1,18 @@
+.spinner{
+    margin-left: auto;
+    margin-right: auto;
+    width: 5rem;
+    height: 5rem;
+    border-top: .3rem solid var(--color-blue);
+    border-left: .3rem solid var(--color-blue);
+    border-right: .3rem solid var(--color-blue);
+    border-bottom: .3rem solid transparent;
+    border-radius: 50%;
+    animation: 1.5s infinite linear spinner;
+}
+
+@keyframes spinner{
+    to{
+        transform: rotate(360deg);
+    }
+}
