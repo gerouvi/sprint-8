@@ -11,8 +11,8 @@ import Button from '../components/buttons/Button';
 // unmount and cleanup DOM after the test is finished.
 afterEach(cleanup);
 
-describe('Ship', () => {
-  it('Check if the Components are mounted', () => {
+describe('Button', () => {
+  it('Check if contains active', () => {
     const { rerender, container } = render(<Button active={false} />);
 
     expect(container.firstChild.classList.contains('active')).toBeFalsy();
