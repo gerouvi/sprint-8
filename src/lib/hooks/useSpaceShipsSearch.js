@@ -17,6 +17,7 @@ const useSpaceShipsSearch = () => {
       setState((prev) => ({ ...prev, page: prev.page + 1 }));
     }
   }, [state, loading]);
+  
   const observerRef = useObserver(nextPage);
 
   const urls = useMemo(() => {
